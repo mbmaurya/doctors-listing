@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "doctors-listing",
-    "public": "dist",
+    "public": "dist/doctors-listing",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
   }
 }

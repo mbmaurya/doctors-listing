@@ -8,9 +8,13 @@ import { Observable } from 'rxjs';
 export class ConfigService {
   constructor(private http: HttpClient) {}
 
-  apiUrl = 'https://www.gpshealthonline.com/webservices/common_recv.php';
+  apiUrl = './src/doctors-list.json';
 
-  getDetails(httpOptions: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, httpOptions);
+  // getDetails(httpOptions: any): Observable<any> {
+  //   return this.http.post<any>(this.apiUrl, httpOptions);
+  // }
+
+  getDetails(): Observable<any> {
+    return this.http.get('./doctors-list.json');
   }
 }

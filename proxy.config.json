@@ -3,6 +3,9 @@
     "target": "https://www.gpshealthonline.com/webservices/common_recv.php",
     "secure": true,
     "logLevel": "debug",
-    "changeOrigin": true
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
   }
 }

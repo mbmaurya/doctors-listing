@@ -1,1 +1,24 @@
-<p>doctors-list works!</p>
+<ul>
+  <li *ngFor="let i of objectKeys(doctorsList)">
+    <img [src]="doctorsList[i].profilepath" alt="" />
+    <h3>{{ doctorsList[i].firstname }} {{ doctorsList[i].lastname }}</h3>
+    <ul>
+      <li *ngFor="let j of doctorsList[i].medicaldegree">
+        {{ j }}
+      </li>
+    </ul>
+    <p>{{ doctorsList[i].specilaity }}</p>
+
+    <p *ngFor="let k of doctorsList[i].servicelist">
+      <ng-template [ngIf]="k.service == 'Clinic Visit'" }}>
+        <li>Charges: {{ k.price }}</li>
+      </ng-template>
+      <ng-template #elseBlock></ng-template>
+    </p>
+
+    <p *ngFor="let m of doctorsList[i].clinicinfo">
+      {{ m.branch_name }}, {{ m.branch_address }}, {{ m.city }}, {{ m.state }},
+      {{ m.country }}, {{ m.pincode }}
+    </p>
+  </li>
+</ul>

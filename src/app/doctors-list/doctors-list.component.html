@@ -1,24 +1,132 @@
-<ul>
-  <li *ngFor="let i of objectKeys(doctorsList)">
-    <img [src]="doctorsList[i].profilepath" alt="" />
-    <h3>{{ doctorsList[i].firstname }} {{ doctorsList[i].lastname }}</h3>
-    <ul>
-      <li *ngFor="let j of doctorsList[i].medicaldegree">
-        {{ j }}
-      </li>
-    </ul>
-    <p>{{ doctorsList[i].specilaity }}</p>
+<div class="row container-row" *ngFor="let i of objectKeys(doctorsList)">
+  <div class="col-sm-12 col-md-12 col-lg-6">
+    <div class="list-container">
+      <div class="doctors-info">
+        <div class="row">
+          <div class="col-sm-12 col-md-4 col-lg-4">
+            <img
+              [src]="doctorsList[i].profilepath"
+              class="profile-photo three-side-border shadow"
+              alt=""
+            />
+          </div>
+          <div class="col-sm-12 col-md-8 col-lg-8">
+            <h3 class="name">
+              {{ doctorsList[i].firstname }} {{ doctorsList[i].lastname }}
+            </h3>
+            <h4 class="degrees">
+              <ng-container *ngFor="let j of doctorsList[i].medicaldegree">
+                <span>{{ j }}, </span>
+              </ng-container>
+            </h4>
 
-    <p *ngFor="let k of doctorsList[i].servicelist">
-      <ng-template [ngIf]="k.service == 'Clinic Visit'" }}>
-        <li>Charges: {{ k.price }}</li>
-      </ng-template>
-      <ng-template #elseBlock></ng-template>
-    </p>
+            <ng-container>
+              <p class="speciality">{{ doctorsList[i].specilaity }}</p>
+            </ng-container>
 
-    <p *ngFor="let m of doctorsList[i].clinicinfo">
-      {{ m.branch_name }}, {{ m.branch_address }}, {{ m.city }}, {{ m.state }},
-      {{ m.country }}, {{ m.pincode }}
-    </p>
-  </li>
-</ul>
+            <p *ngFor="let k of doctorsList[i].servicelist">
+              <ng-template [ngIf]="k.service == 'Clinic Visit'" }}>
+                <p class="clinic-charges">
+                  Clinic Charges: {{ k.price }} / per visit
+                </p>
+              </ng-template>
+              <ng-template #elseBlock></ng-template>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="clinic-info">
+        <h2>Clinic Details</h2>
+        <p>
+          <span *ngFor="let m of doctorsList[i].clinicinfo">
+            {{ m.branch_name }}, {{ m.branch_address }}, {{ m.city }},
+            {{ m.state }}, {{ m.country }}, {{ m.pincode }}
+          </span>
+        </p>
+
+        <a href="#">View Location</a>
+      </div>
+
+      <div class="contact-info three-side-border shadow">
+        <ul>
+          <li><a href="#">Call</a></li>
+          <li><a href="#">Home Booking</a></li>
+          <li><a href="#">Clinic Visit</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-12 col-lg-6">
+    <div class="appointment-calender three-side-border shadow">
+      <div class="appointment-header">
+        <span class="title">Book Appointment</span>
+        <span class="navigate"></span>
+      </div>
+      <div class="appointment-body">
+        <div class="date-and-day">
+          <ul>
+            <li>
+              <p>Jun 01</p>
+              <p>Tue</p>
+            </li>
+            <li>
+              <p>Jun 02</p>
+              <p>Wed</p>
+            </li>
+            <li>
+              <p>Jun 03</p>
+              <p>Thur</p>
+            </li>
+            <li>
+              <p>Jun 04</p>
+              <p>Fri</p>
+            </li>
+            <li>
+              <p>Jun 05</p>
+              <p>Sat</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="slot">
+          <ul>
+            <li class="disabled"><div></div></li>
+            <li class="vacant"><div>10:00</div></li>
+            <li class="booked"><div>10:00</div></li>
+            <li class="vacant"><div>10:00</div></li>
+            <li class="booked"><div>10:00</div></li>
+          </ul>
+          <ul>
+            <li class="disabled"><div></div></li>
+            <li class="vacant"><div>10:00</div></li>
+            <li class="booked"><div>10:00</div></li>
+            <li class="booked"><div>10:00</div></li>
+            <li class="vacant"><div>10:00</div></li>
+          </ul>
+          <ul>
+            <li class="disabled"><div></div></li>
+            <li class="vacant"><div>10:00</div></li>
+            <li class="booked"><div>10:00</div></li>
+            <li class="booked"><div>10:00</div></li>
+            <li class="vacant"><div>10:00</div></li>
+          </ul>
+          <ul>
+            <li class="disabled"><div></div></li>
+            <li class="vacant"><div>10:00</div></li>
+            <li class="booked"><div>10:00</div></li>
+            <li class="vacant"><div>10:00</div></li>
+            <li class="booked"><div>10:00</div></li>
+          </ul>
+          <ul>
+            <li class="disabled"><div></div></li>
+            <li class="vacant"><div>10:00</div></li>
+            <li class="booked"><div>10:00</div></li>
+            <li class="booked"><div>10:00</div></li>
+            <li class="booked"><div>10:00</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

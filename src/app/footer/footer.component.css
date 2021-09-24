@@ -1,0 +1,28 @@
+.footer-row {
+  padding: 64px 0px;
+}
+
+.footer-row ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-row ul li.head {
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.footer-row ul li {
+  margin-top: 10px;
+}
+
+.footer-row ul li a {
+  font-size: 14px;
+  color: #444444;
+  text-decoration: none;
+}
+
+.footer-row .copyright {
+  margin-top: 40px;
+}
